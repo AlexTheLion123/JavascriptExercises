@@ -58,6 +58,25 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  const audioKeys = document.querySelectorAll("audio");
+  //console.log(audioKeys)
+  
+  window.addEventListener('keydown', e => {
+    keyCode = e.keyCode;
+    const audio = document.querySelector(`audio[data-key='${keyCode}']`)
+    const div = document.querySelector(`div[data-key='${keyCode}']`)
+    div.classList.add("playing");
+    
+    audio.load();
+    
+    audio.play();
+    
+    audio.addEventListener('ended', e => {
+      div.classList.remove("playing")
+    })
+  })
+  
+  
 
 </script>
 
